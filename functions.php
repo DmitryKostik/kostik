@@ -44,4 +44,12 @@ function deleteUser($id){
 	return $res;
 }
 
+function updateUser($id, $nickname, $age){
+	global $link;
+	openDB();
+	$res = mysqli_query($link,"UPDATE users SET Nickname = '$nickname', Age=$age WHERE ID_user=$id");
+	closeDB();
+	return $res;
+}
+
 ?>
