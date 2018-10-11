@@ -1,0 +1,15 @@
+.form-group{
+  display: inline-block;
+  text-align: center;
+}
+
+.w-35{
+  width: 35%;
+}
+
+.w-40{
+  width: 49%!important;
+}
+.w-100{
+  width: 100%;
+}

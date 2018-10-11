@@ -3,7 +3,7 @@
 function openDB()
 {
 	global $link;
-	$link = mysqli_connect("localhost","root","","user");
+	$link = mysqli_connect("localhost","root","0000","user");
 	mysqli_query($link, "SET NAMES UTF8");
 }
 
@@ -50,6 +50,10 @@ function updateUser($id, $nickname, $age){
 	$res = mysqli_query($link,"UPDATE users SET Nickname = '$nickname', Age=$age WHERE ID_user=$id");
 	closeDB();
 	return $res;
+}
+
+function initSession(){
+
 }
 
 ?>

@@ -15,10 +15,10 @@
   <div class="container text-center">
     <h1>Добавить пользователя</h1>
   <div class="form-group mx-auto">
-  <form class=""  action="addUser.php" name="reg_form" method="post">
-    <input class="form-control" type="text" name="nickname" value="" placeholder="Имя">
+  <form class=""  action="../addUser.php" name="reg_form" method="post">
+    <input class="form-control mb-2" type="text" name="nickname" value="" placeholder="Имя">
     <input class="form-control" type="text" name="age" value="" placeholder="Возраст">
-    <input class="btn btn-outline-success mt-1 px-5" type="submit" name="but_reg" value="Регистрация">
+    <input class="btn btn-outline-success mt-1 px-5 w-100" type="submit" name="but_reg" value="Регистрация">
   </form>
 </div>
 </div>
