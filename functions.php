@@ -22,7 +22,7 @@ function getUserByID($id){
 function getAllUsers(){
 	global $link;
 	openDB();
-	$res = mysqli_query($link,"SELECT* FROM users");
+	$res = mysqli_query($link,"SELECT * FROM users JOIN user_roles ON users.role_id=user_roles.role_id");
 	closeDB();
 	return $res->fetch_all($resultype=MYSQLI_ASSOC);
 }
@@ -35,10 +35,10 @@ function getAllRoles(){
 	return $res->fetch_all($resultype=MYSQLI_ASSOC);
 }
 
-function addUser($nickname, $age, $pass){
+function addUser($nickname, $age, $pass, $role_id){
 	global $link;
 	openDB();
-	$res = mysqli_query($link,"INSERT INTO users(Nickname,Age,Password) VALUES ('$nickname', $age, '$pass')");
+	$res = mysqli_query($link,"INSERT INTO users(Nickname,Age,Password,role_id) VALUES ('$nickname', $age, '$pass', $role_id)");
 	closeDB();
 	return $res;
 }
@@ -51,10 +51,10 @@ function deleteUser($id){
 	return $res;
 }
 
-function updateUser($id, $nickname, $age){
+function updateUser($id, $nickname, $age, $role){
 	global $link;
 	openDB();
-	$res = mysqli_query($link,"UPDATE users SET Nickname = '$nickname', Age=$age WHERE ID_user=$id");
+	$res = mysqli_query($link,"UPDATE users SET Nickname = '$nickname', Age=$age, role_id=$role WHERE ID_user=$id");
 	closeDB();
 	return $res;
 }

@@ -1,8 +1,9 @@
 <?php
 include "../functions.php";
 $res = getUserByID($_GET['id']);
+$role = getAllRoles();
 if (!empty($_POST["but_change"])) {
-updateUser($_GET['id'], $_POST['nickname'], $_POST['age']);
+updateUser($_GET['id'], $_POST['nickname'], $_POST['age'], $_POST['role-value']);
 header("Location: index.php");
 }
 ?>
@@ -19,12 +20,27 @@ header("Location: index.php");
     <title>123</title>
   </head>
 <body>
+  <?php include_once "header.php" ?>
   <div class="container text-center">
     <h1>Изменить пользователя <?php echo $res["Nickname"] ?></h1>
   <div class="form-group mx-auto">
   <form class=""  name="change_form" method="post">
     <input class="form-control mb-2" type="text" name="nickname" value="<?php echo $res["Nickname"] ?>" placeholder="Имя">
-    <input class="form-control" type="text" name="age" value="<?php echo $res["Age"] ?>" placeholder="Возраст">
+    <input class="form-control mb-2" type="text" name="age" value="<?php echo $res["Age"] ?>" placeholder="Возраст">
+    <div class="input-group mb-3">
+  <select name="role-value" class="custom-select" id="inputGroupSelectRole">
+    <?php
+    for($j=0; $j<count($role);$j++){
+        $role_id = $role[$j]["role_id"];
+        $role_name = $role[$j]["role_name"];
+        if ($role_id == $res["role_id"]) {
+          echo "<option selected value='$role_id'>$role_name</option>";
+        }
+        else { echo "<option value='$role_id'>$role_name</option>"; }
+        }
+    ?>
+  </select>
+</div>
     <input class="btn btn-outline-success mt-1 px-5" type="submit" name="but_change" value="Изменить">
   </form>
 </div>
