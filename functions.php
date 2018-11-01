@@ -27,11 +27,18 @@ function getAllUsers(){
 	return $res->fetch_all($resultype=MYSQLI_ASSOC);
 }
 
-function addUser($nickname, $age){
+function getAllRoles(){
 	global $link;
 	openDB();
-	$res = mysqli_query($link,"INSERT INTO users(Nickname,Age) VALUES ('$nickname', $age)");
+	$res = mysqli_query($link,"SELECT * FROM user_roles");
+	closeDB();
+	return $res->fetch_all($resultype=MYSQLI_ASSOC);
+}
 
+function addUser($nickname, $age, $pass){
+	global $link;
+	openDB();
+	$res = mysqli_query($link,"INSERT INTO users(Nickname,Age,Password) VALUES ('$nickname', $age, '$pass')");
 	closeDB();
 	return $res;
 }
@@ -53,7 +60,7 @@ function updateUser($id, $nickname, $age){
 }
 
 function initSession(){
-
+  session_start();
 }
 
 ?>

@@ -18,6 +18,7 @@
   <form class=""  action="../addUser.php" name="reg_form" method="post">
     <input class="form-control mb-2" type="text" name="nickname" value="" placeholder="Имя">
     <input class="form-control" type="text" name="age" value="" placeholder="Возраст">
+    <input class="form-control" type="text" name="pass" value="" placeholder="Пароль">
     <input class="btn btn-outline-success mt-1 px-5 w-100" type="submit" name="but_reg" value="Регистрация">
   </form>
 </div>
