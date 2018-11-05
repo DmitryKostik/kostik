@@ -34,7 +34,7 @@ $res = getAllUsers();
 					<?php
 					for($i=0; $i<count($res);$i++){
 							$id=$res[$i]["ID_user"];
-							echo "<tr><td>".$res[$i]["ID_user"]." </td>";
+							echo "<tr id='user-$id'><td>".$res[$i]["ID_user"]." </td>";
 							echo "<td>".$res[$i]["Nickname"]." </td>";
 							echo "<td>".$res[$i]["Age"]." </td>";
               echo "<td>".$res[$i]["role_name"]." </td>";
@@ -60,10 +60,8 @@ $res = getAllUsers();
           ...
         </div>
         <div class="modal-footer mx-auto">
-          <form class="" action="" method="post">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-            <input type="submit" id="delete-button" name="but_delete" value="Удалить"  class="btn btn-primary">
-          </form>
+          <button type="button" id="delete-button" class="btn btn-primary">Удалить</button>
         </div>
       </div>
     </div>
@@ -78,31 +76,34 @@ $res = getAllUsers();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <script>
-
-  $('#Delete').on('show.bs.modal', function(e) {
-
+    $('#Delete').on('show.bs.modal', function(e) {
        var $modal = $(this),
-           esseyId = e.relatedTarget.dataset.deleteid;
+           deleteid = e.relatedTarget.dataset.deleteid;
        $.ajax({
            method: 'GET',
-           url: 'delete.php',
-           data: 'id=' + esseyId
+           url: 'getuser.php',
+           data: 'id=' + deleteid
        })
        .done(function(data) {
         $modal.find('.edit-content').html(data);
       })
       .fail(function() {
-        $modal.find('.edit-content').html(esseyid);
+        $modal.find('.edit-content').html(deleteid);
       });
+      $('#delete-button').click(function(){
+        $.ajax({
+            method: 'GET',
+            url: 'deleteuser.php',
+            data: 'id='+ deleteid
+        })
+        .done(function() {
+         $('#user-'+deleteid).remove();
+         $('#Delete').modal('toggle');
+       });
+   });
    });
 
-   $('#delete-button').click(function(){
-     $.ajax({
-         method: 'GET',
-         url: '/delete.php',
-         data: {'id=': esseyId, 'delete':'delete' }
-     })
-});
+
 
  </script>
 
