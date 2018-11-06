@@ -1,7 +1,11 @@
-<?php
-include_once "../Model/functions.php";
-$role = getAllRoles();
-?>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+
 <header class="mb-3">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">USERS</a>
@@ -35,12 +39,15 @@ $role = getAllRoles();
             <div class="input-group mb-3">
           <select name="role" class="custom-select" id="inputGroupSelectRole">
             <?php
-  					for($j=0; $j<count($role);$j++){
-  							$role_id = $role[$j]["role_id"];
+            include_once "../Model/functions.php";
+            $role = getAllRoles();
+            for($j=0; $j<count($role);$j++){
+                $role_id = $role[$j]["role_id"];
                 $role_name = $role[$j]["role_name"];
-  							echo "<option value='$role_id'>$role_name</option>";
-  							}
-  					?>
+                echo "<option value='$role_id'>$role_name</option>";
+                }
+            ?>
+
           </select>
         </div>
   </div>
@@ -75,3 +82,5 @@ $role = getAllRoles();
     </div>
   </div>
 </div>
+</body>
+</html>
