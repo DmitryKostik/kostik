@@ -1,5 +1,5 @@
 <?php
-include_once "../functions.php";
+include_once "../Controllers/functions.php";
 $role = getAllRoles();
 ?>
 <header class="mb-3">
@@ -26,7 +26,7 @@ $role = getAllRoles();
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class=""  action="../addUser.php" name="reg_form" method="post">
+      <form class=""  action="../Controllers/addUser.php" name="reg_form" method="post">
       <div class="modal-body">
           <input class="form-control mb-2" type="text" name="nickname" value="" placeholder="Имя">
           <input class="form-control mb-2" type="text" name="age" value="" placeholder="Возраст">

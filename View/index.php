@@ -1,5 +1,5 @@
   <?php
-include_once "../functions.php";
+include_once "../Controllers/functions.php";
 $res = getAllUsers();
 ?>
 <html lang="en">

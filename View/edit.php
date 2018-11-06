@@ -1,5 +1,5 @@
 <?php
-include "../functions.php";
+include "../Controllers/functions.php";
 $res = getUserByID($_GET['id']);
 $role = getAllRoles();
 if (!empty($_POST["but_change"])) {

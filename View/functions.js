@@ -6,7 +6,7 @@ $(document).ready( function(){
            deleteid = e.relatedTarget.dataset.deleteid;
        $.ajax({
            method: 'GET',
-           url: 'getuser.php',
+           url: '../Controllers/getuser.php',
            data: 'id=' + deleteid
        })
        .done(function(data) {
@@ -20,7 +20,7 @@ $(document).ready( function(){
    $('#delete-button').click(function(){
      $.ajax({
          method: 'GET',
-         url: 'deleteuser.php',
+         url: '../Controllers/deleteuser.php',
          data: 'id='+ deleteid
      })
      .done(function() {

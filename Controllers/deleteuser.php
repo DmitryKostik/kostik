@@ -1,4 +1,4 @@
 <?php
-include "../functions.php";
+include "functions.php";
 deleteUser($_GET['id']);
 ?>

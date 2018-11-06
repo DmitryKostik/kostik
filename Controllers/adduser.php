@@ -6,6 +6,6 @@ if (!empty($_POST["but_reg"])) {
   $pass = htmlspecialchars($_POST["pass"]);
   $role_id = htmlspecialchars($_POST["role"]);
   $success = addUser($nickname, $age, md5($pass), $role_id);
-  header("Location: View/index.php");
+  header("Location: ../View/index.php");
 }
 ?>
