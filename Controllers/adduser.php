@@ -1,5 +1,5 @@
 <?php
-include "functions.php";
+include "../Model/functions.php";
 if (!empty($_POST["but_reg"])) {
   $nickname = htmlspecialchars($_POST["nickname"]);
   $age = htmlspecialchars($_POST["age"]);

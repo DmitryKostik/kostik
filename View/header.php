@@ -1,5 +1,5 @@
 <?php
-include_once "../Controllers/functions.php";
+include_once "../Model/functions.php";
 $role = getAllRoles();
 ?>
 <header class="mb-3">
