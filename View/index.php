@@ -38,7 +38,7 @@ $res = getAllUsers();
 							echo "<td>".$res[$i]["Nickname"]." </td>";
 							echo "<td>".$res[$i]["Age"]." </td>";
               echo "<td>".$res[$i]["role_name"]." </td>";
-              echo "<td class='bg-transparent border-white text-center px-0'><a class='text-warning' href=edit.php?id=$id><i class='far fa-edit'></i></a></td>";
+              echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-editid='$id' data-target='#Edit'><i class='far fa-edit'></i></a></td>";
               echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-deleteid='$id' data-target='#Delete'><i class='fas fa-trash-alt'></i></a></td></tr>";
 							}
 					?>
@@ -46,8 +46,29 @@ $res = getAllUsers();
 			</table>
 		</div>
 	</div>
-
+<!-- Удалить-->
   <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Удалить</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body delete-content">
+          ...
+        </div>
+        <div class="modal-footer mx-auto">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="button" id="delete-button" class="btn btn-primary">Удалить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -61,7 +82,7 @@ $res = getAllUsers();
         </div>
         <div class="modal-footer mx-auto">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" id="delete-button" class="btn btn-primary">Удалить</button>
+          <button type="button" id="edit-button" class="btn btn-primary">Удалить</button>
         </div>
       </div>
     </div>
@@ -76,6 +97,7 @@ $res = getAllUsers();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <script src="../js/deleteuser.js" charset="utf-8"></script>
+<script src="../js/edituser.js" charset="utf-8"></script>
 
 </body>
 </html>

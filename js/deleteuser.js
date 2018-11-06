@@ -10,10 +10,10 @@ $(document).ready( function(){
            data: 'id=' + deleteid
        })
        .done(function(data) {
-        $modal.find('.edit-content').html(data);
+        $modal.find('.delete-content').html(data);
       })
       .fail(function() {
-        $modal.find('.edit-content').html(deleteid);
+        $modal.find('.delete-content').html(deleteid);
       })
    });
 
