@@ -75,37 +75,7 @@ $res = getAllUsers();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<script>
-    $('#Delete').on('show.bs.modal', function(e) {
-       var $modal = $(this),
-           deleteid = e.relatedTarget.dataset.deleteid;
-       $.ajax({
-           method: 'GET',
-           url: 'getuser.php',
-           data: 'id=' + deleteid
-       })
-       .done(function(data) {
-        $modal.find('.edit-content').html(data);
-      })
-      .fail(function() {
-        $modal.find('.edit-content').html(deleteid);
-      });
-      $('#delete-button').click(function(){
-        $.ajax({
-            method: 'GET',
-            url: 'deleteuser.php',
-            data: 'id='+ deleteid
-        })
-        .done(function() {
-         $('#user-'+deleteid).remove();
-         $('#Delete').modal('toggle');
-       });
-   });
-   });
-
-
-
- </script>
+<script src="functions.js" charset="utf-8"></script>
 
 </body>
 </html>

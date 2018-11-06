@@ -3,7 +3,7 @@
 function openDB()
 {
 	global $link;
-	$link = mysqli_connect("localhost","root","0000","user");
+	$link = mysqli_connect("localhost","root","","user");
 	mysqli_query($link, "SET NAMES UTF8");
 }
 
