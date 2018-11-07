@@ -36,7 +36,7 @@ $res = getAllUsers();
 					for($i=0; $i<count($res);$i++){
 							$id=$res[$i]["ID_user"];
 							echo "<tr class='users-element' data-editid='$id' id='user-$id'><td>".$res[$i]["ID_user"]." </td>";
-							echo "<td id='nickname'>".$res[$i]["Nickname"]." </td>";
+							echo "<td id='nickname'>".$res[$i]["Nickname"]."</td>";
 							echo "<td id='age'>".$res[$i]["Age"]." </td>";
               echo "<td id='rolename'>".$res[$i]["role_name"]." </td></tr>";
 							}
