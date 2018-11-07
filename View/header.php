@@ -34,7 +34,7 @@
       <div class="modal-body">
           <input class="form-control mb-2" type="text" name="nickname" value="" placeholder="Имя">
           <input class="form-control mb-2" type="text" name="age" value="" placeholder="Возраст">
-          <input class="form-control mb-2" type="text" name="pass" value="" placeholder="Пароль">
+          <input class="form-control mb-2" type="password" name="pass" value="" placeholder="Пароль">
           <div class="input-group mb-3">
             <div class="input-group mb-3">
           <select name="role" class="custom-select" id="inputGroupSelectRole">

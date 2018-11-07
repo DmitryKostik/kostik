@@ -1,9 +1,8 @@
 
 $(document).ready( function(){
    var editid;
-   var $modal;
    $('#Edit').on('show.bs.modal', function(e) {
-       $modal = $(this);
+       var $modal = $(this);
        editid = e.relatedTarget.dataset.editid;
        $.ajax({
            method: 'GET',
@@ -16,14 +15,17 @@ $(document).ready( function(){
    });
 
    $('#edit-button').click(function(){
-     var changeform = $('#changeform');
+     var nickname = $("#changeform input[name='nickname']").val();
+     var age = $("#changeform input[name='age']").val();
+     var rolevalue = $("#changeform select[name='rolevalue']").val();
      $.ajax({
-         type: 'POST',
+         type: 'GET',
          url: '../Controllers/edituser.php',
-         data: {id: editid, nickname: changeform.nickname, age: changeform.age, rolevalue: changeform.rolevalue }
+         data: {id: editid, nickname: nickname, age: age, rolevalue: rolevalue }
      })
-     .done(function() {
-
+     .done(function(data) {
+       $('#user-'+editid).html(data);
+       $('#Edit').modal('toggle');
     });
    });
 })

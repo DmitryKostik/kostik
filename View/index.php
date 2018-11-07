@@ -35,9 +35,9 @@ $res = getAllUsers();
 					for($i=0; $i<count($res);$i++){
 							$id=$res[$i]["ID_user"];
 							echo "<tr id='user-$id'><td>".$res[$i]["ID_user"]." </td>";
-							echo "<td>".$res[$i]["Nickname"]." </td>";
-							echo "<td>".$res[$i]["Age"]." </td>";
-              echo "<td>".$res[$i]["role_name"]." </td>";
+							echo "<td id='nickname'>".$res[$i]["Nickname"]." </td>";
+							echo "<td id='age'>".$res[$i]["Age"]." </td>";
+              echo "<td id='rolename'>".$res[$i]["role_name"]." </td>";
               echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-editid='$id' data-target='#Edit'><i class='far fa-edit'></i></a></td>";
               echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-deleteid='$id' data-target='#Delete'><i class='fas fa-trash-alt'></i></a></td></tr>";
 							}
@@ -82,7 +82,7 @@ $res = getAllUsers();
         </div>
         <div class="modal-footer mx-auto">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" id="edit-button" class="btn btn-primary">Удалить</button>
+          <button type="button" id="edit-button" class="btn btn-primary">Изменить</button>
         </div>
       </div>
     </div>
