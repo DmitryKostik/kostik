@@ -3,7 +3,6 @@ $(document).ready( function(){
    var editid;
    $('#Edit').on('show.bs.modal', function(e) {
        var $modal = $(this);
-       editid = e.relatedTarget.dataset.editid;
        $.ajax({
            method: 'GET',
            url: '../Controllers/getedit.php',
@@ -27,5 +26,10 @@ $(document).ready( function(){
        $('#user-'+editid).html(data);
        $('#Edit').modal('toggle');
     });
+   });
+
+   $(".users-element").click(function(e) {
+     editid = this.dataset.editid;
+     $('#Edit').modal('show');
    });
 })

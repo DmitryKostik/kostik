@@ -7,7 +7,6 @@ updateUser($_GET['id'], $_POST['nickname'], $_POST['age'], $_POST['rolevalue']);
 header("Location: index.php");
 }
 ?>
-  <p>Изменить пользователя <?php echo $res["Nickname"] ?></p>
   <div class="form-group mx-auto">
     <form class="" id='changeform'  name="change_form" method="post">
       <input class="form-control mb-2" type="text" name="nickname" value="<?php echo $res["Nickname"] ?>" placeholder="Имя">

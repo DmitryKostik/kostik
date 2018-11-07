@@ -11,6 +11,7 @@ $res = getAllUsers();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/style.css">
 
     <title>User</title>
   </head>
@@ -34,11 +35,10 @@ $res = getAllUsers();
 					<?php
 					for($i=0; $i<count($res);$i++){
 							$id=$res[$i]["ID_user"];
-							echo "<tr id='user-$id'><td>".$res[$i]["ID_user"]." </td>";
+							echo "<tr class='users-element' data-editid='$id' id='user-$id'><td>".$res[$i]["ID_user"]." </td>";
 							echo "<td id='nickname'>".$res[$i]["Nickname"]." </td>";
 							echo "<td id='age'>".$res[$i]["Age"]." </td>";
               echo "<td id='rolename'>".$res[$i]["role_name"]." </td>";
-              echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-editid='$id' data-target='#Edit'><i class='far fa-edit'></i></a></td>";
               echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-deleteid='$id' data-target='#Delete'><i class='fas fa-trash-alt'></i></a></td></tr>";
 							}
 					?>
@@ -72,7 +72,7 @@ $res = getAllUsers();
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Удалить</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Изменить</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
