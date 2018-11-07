@@ -1,5 +1,6 @@
 .users-element{
   cursor: pointer;
+  z-index: 1;
 }
 
 .users-element:hover{
