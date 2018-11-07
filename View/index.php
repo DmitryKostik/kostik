@@ -38,8 +38,7 @@ $res = getAllUsers();
 							echo "<tr class='users-element' data-editid='$id' id='user-$id'><td>".$res[$i]["ID_user"]." </td>";
 							echo "<td id='nickname'>".$res[$i]["Nickname"]." </td>";
 							echo "<td id='age'>".$res[$i]["Age"]." </td>";
-              echo "<td id='rolename'>".$res[$i]["role_name"]." </td>";
-              echo "<td class='bg-transparent border-white text-center px-0'><a class='text-danger' href='#myModal' data-toggle='modal' data-deleteid='$id' data-target='#Delete'><i class='fas fa-trash-alt'></i></a></td></tr>";
+              echo "<td id='rolename'>".$res[$i]["role_name"]." </td></tr>";
 							}
 					?>
 				</tbody>
@@ -47,8 +46,8 @@ $res = getAllUsers();
 		</div>
 	</div>
 <!-- Удалить-->
-  <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Удалить</h5>
@@ -59,17 +58,17 @@ $res = getAllUsers();
         <div class="modal-body delete-content">
           ...
         </div>
-        <div class="modal-footer mx-auto">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" id="delete-button" class="btn btn-primary">Удалить</button>
+        <div class="modal-footer">
+          <button type="button" id="agree-delete-button" class="btn btn-outline-danger">Удалить</button>
+          <button type="button" id="back-delete-button" class="btn btn-outline-primary">Назад</button>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Изменить</h5>
@@ -80,9 +79,14 @@ $res = getAllUsers();
         <div class="modal-body edit-content">
           ...
         </div>
-        <div class="modal-footer mx-auto">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="button" id="edit-button" class="btn btn-primary">Изменить</button>
+        <div class="modal-footer">
+          <div class="mr-auto">
+            <button type="button" id="delete-button" class="btn btn-outline-danger">Удалить</button>
+            <button type="button" id="edit-button" class="btn btn-outline-primary">Сохранить</button>
+          </div>
+          <div class="ml-auto">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Отмена</button>
+          </div>
         </div>
       </div>
     </div>
@@ -95,8 +99,6 @@ $res = getAllUsers();
   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-<script src="../js/deleteuser.js" charset="utf-8"></script>
 <script src="../js/edituser.js" charset="utf-8"></script>
 
 </body>
