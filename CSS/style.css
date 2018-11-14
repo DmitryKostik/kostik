@@ -4,5 +4,6 @@
 }
 
 .users-element:hover{
-  background-color: #F5F7FA;
+  background-color: #007bff;
+  border-color: #007bff;
 }
